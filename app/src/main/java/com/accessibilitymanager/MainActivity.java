@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.setData(Uri.parse("package:" + getPackageName()));
                     startActivity(intent);
                 } catch (Exception e) {
-                    Log.e(TAG, "Failed to request battery optimization ignore", e);
+                    Log.e(TAG, "Yêu cầu bỏ tối ưu pin thất bại", e);
                 }
             }
         }
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             } catch (Exception e) {
-                Log.e(TAG, "Failed to change recents visibility", e);
+                Log.e(TAG, "Thay đổi trạng thái hiển thị recent apps thất bại", e);
             }
         }
     }
