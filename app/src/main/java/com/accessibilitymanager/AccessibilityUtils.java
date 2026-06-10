@@ -62,7 +62,7 @@ public class AccessibilityUtils {
         try {
             Settings.Secure.putString(context.getContentResolver(), SETTING_KEY, sb.toString());
         } catch (Exception e) {
-            Log.e(TAG, "写入安全设置失败，可能无权限", e);
+            Log.e(TAG, "Ghi cài đặt bảo mật thất bại, có thể không có quyền", e);
         }
     }
 
@@ -112,9 +112,9 @@ public class AccessibilityUtils {
         if (!isServiceEnabled(context, serviceName)) {
             try {
                 enableService(context, serviceName);
-                Log.i(TAG, "已自动静默开启保活服务: " + serviceName);
+                Log.i(TAG, "Đã tự động bật im lặng dịch vụ giữ sống nền: " + serviceName);
             } catch (Exception e) {
-                Log.e(TAG, "自动开启保活服务失败", e);
+                Log.e(TAG, "Tự động bật dịch vụ giữ sống nền thất bại", e);
             }
         }
     }
