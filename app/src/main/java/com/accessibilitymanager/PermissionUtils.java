@@ -82,7 +82,7 @@ public class PermissionUtils {
                 Toast.makeText(context, context.getString(R.string.permission_dialog_root_failed, p.exitValue()), Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
-            Log.e(TAG, "Root command failed", e);
+            Log.e(TAG, "Chạy lệnh Root ko thành công", e);
             Toast.makeText(context, R.string.permission_dialog_root_unavailable, Toast.LENGTH_SHORT).show();
         } finally {
             try {
@@ -106,7 +106,7 @@ public class PermissionUtils {
                 // 授权结果将在 Activity 的 Listener 中回调
             }
         } catch (Exception e) {
-            Log.e(TAG, "Shizuku not available", e);
+            Log.e(TAG, "Shizuku ko khả dụng", e);
             Toast.makeText(context, R.string.permission_dialog_shizuku_unavailable, Toast.LENGTH_SHORT).show();
         }
     }
@@ -125,7 +125,7 @@ public class PermissionUtils {
                 Toast.makeText(context, R.string.permission_dialog_shizuku_failed, Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
-            Log.e(TAG, "Shizuku command failed", e);
+            Log.e(TAG, "Chạy lệnh Shizuku ko thành công", e);
         }
     }
 }
