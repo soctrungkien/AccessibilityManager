@@ -90,7 +90,7 @@ public class DaemonService extends Service {
         mHandler.post(this::doDaemonCheck);
         mHandler.postDelayed(mHeartbeatRunnable, HEARTBEAT_INTERVAL);
 
-        Log.i(TAG, "DaemonService 已启动 (含屏幕监听与心跳)...");
+        Log.i(TAG, "DaemonService đã khởi động " + "(kèm listener màn hình và heartbeat)...");
     }
 
     /**
@@ -159,13 +159,13 @@ public class DaemonService extends Service {
                     String label = getPackageManager().getApplicationLabel(getPackageManager().getApplicationInfo(cn.getPackageName(), 0)).toString();
                     restoredNames.append(label).append(' ');
                 } catch (PackageManager.NameNotFoundException ignored) {
-                    Log.w(TAG, "未找到应用，跳过保活: " + id);
+                    Log.w(TAG, "Không tìm thấy ứng dụng, bỏ qua bảo vệ: " + id);
                 }
             }
         }
 
         if (needUpdate) {
-            Log.d(TAG, "检测到服务被关闭，正在恢复: " + restoredNames);
+            Log.d(TAG, "Phát hiện service bị tắt, đang khôi phục: " + restoredNames);
             isSelfModification = true; // 标记由本APP修改
             AccessibilityUtils.setEnabledServices(this, targetEnabled);
 
@@ -201,7 +201,7 @@ public class DaemonService extends Service {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (Intent.ACTION_SCREEN_ON.equals(action) || Intent.ACTION_USER_PRESENT.equals(action)) {
-                Log.i(TAG, "屏幕点亮/解锁，强制检查服务状态...");
+                Log.i(TAG, "Màn hình bật/mở khóa, " + "ép kiểm tra trạng thái service...");
                 if (mHandler != null) {
                     mHandler.post(DaemonService.this::doDaemonCheck);
                 }
@@ -233,7 +233,7 @@ public class DaemonService extends Service {
         if (mWorkerThread != null) {
             mWorkerThread.quitSafely();
         }
-        Log.i(TAG, "DaemonService destroyed.");
+        Log.i(TAG, "DaemonService đã bị hủy.");
     }
 
     @Override
