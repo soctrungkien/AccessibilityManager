@@ -20,7 +20,7 @@ public class StartReceiver extends BroadcastReceiver {
         SharedPreferences sp = context.getSharedPreferences(AppConstants.PREFS_NAME, Context.MODE_PRIVATE);
         if (!sp.getBoolean(AppConstants.KEY_AUTO_BOOT, true)) return;
 
-        Log.d("StartReceiver", "Boot completed, starting DaemonService...");
+        Log.d("StartReceiver", "Boot thành công, chạy DaemonService...");
 
         Intent serviceIntent = new Intent(context, DaemonService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
